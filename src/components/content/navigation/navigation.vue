@@ -25,6 +25,7 @@ export default {
 @import "../../../assets/sass/mixins.scss";
 
     .navbar{
+        box-shadow: 0px 1em 3em rgba(#000,.175);
         height: 91.92vh;
         max-width: 300px;
         min-width: 300px;

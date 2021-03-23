@@ -1,9 +1,20 @@
 <template>
     <div class="navMenu__main">
-        <div class="navMenu__main" v-for="(item,index) in menu" :key="index">
-            <div class="navMenu__main-head">{{item.title}}</div>
+        <div class="navMenu__main">
+            <div class="navMenu__main-head">Основное</div>
             <div class="navMenu__main-menu">
-                <div v-for="(item,index) in item.menuChild" :key="index" class="navMenu__main-menu-item">
+                <div v-for="(itemMenu,index) in menuChild" :key="index" class="navMenu__main-menu-item" :class="itemMenu.class" @click="selectMenu(itemMenu)" ref="menuItem">
+                    <b-icon :icon="itemMenu.icon" font-scale="1.5"></b-icon>
+                    <p class="text">
+                        {{itemMenu.title}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="navMenu__main">
+            <div class="navMenu__main-head">Профиль</div>
+            <div class="navMenu__main-menu">
+                <div v-for="(item,index) in profileChild" :key="index" class="navMenu__main-menu-item" :class="item.class" @click="selectMenu(item)" ref="profilItem">
                     <b-icon :icon="item.icon" font-scale="1.5"></b-icon>
                     <p class="text">
                         {{item.title}}
@@ -20,54 +31,69 @@ export default {
     name:'',
     data:()=>{
         return{
-            menu:[
-                {
-                    title:"Основное",
-                    menuChild:[
-                        {
-                            title:"Аналитика",
-                            icon:"grid",
-                        },
-                        {
-                            title:"Склад",
-                            icon:"building",
-                        },
-                        {
-                            title:"Товары",
-                            icon:"box-seam",
-                        },
-                        {
-                            title:"Оповещения",
-                            icon:"bell",
-                        },
-                    ]
-                },
-                {
-                    title:'Профиль',
-                    menuChild:[
-                        {
-                            title:"Личный кабинет",
-                            icon:"grid",
-                        },
-                        {
-                            title:"Интеграция",
-                            icon:"building",
-                        },
-                        {
-                            title:"Тарифы",
-                            icon:"box-seam",
-                        },
-                        {
-                            title:"Помощь",
-                            icon:"bell",
-                        },
-                    ]
-                }
-            ]
+              menuChild:[
+                  {
+                      title:"Склад",
+                      icon:"building",
+                      class:''
+                  },
+                  {
+                      title:"Товары",
+                      icon:"box-seam",
+                      class:''
+                  },
+                  {
+                      title:"Аналитика",
+                      icon:"grid",
+                      class:''
+                  },
+                  {
+                      title:"Оповещения",
+                      icon:"bell",
+                      class:''
+                  },
+              ],
+              profileChild:[
+                  {
+                      title:"Личный кабинет",
+                      icon:"person",
+                      class:''
+                  },
+                  {
+                      title:"Интеграция",
+                      icon:"cloud-upload",
+                      class:''
+                  },
+                  {
+                      title:"Тарифы",
+                      icon:"card-checklist",
+                      class:''
+                  },
+                  {
+                      title:"Помощь",
+                      icon:"question-diamond",
+                      class:''
+                  },
+              ]
         }
     },
     methods:{
-
+        selectMenu(item){
+            for (let i = 0; i < this.profileChild.length; i++) {
+                if(this.profileChild[i] == item && this.profileChild[i].class != "select"){
+                    this.profileChild[i].class = "select";
+                }else{
+                    this.profileChild[i].class = '';
+                }
+            }
+            for (let i = 0; i < this.menuChild.length; i++) {
+                if(this.menuChild[i] == item && this.menuChild[i].class != "select"){
+                    this.menuChild[i].class = "select";
+                }else{
+                    this.menuChild[i].class = '';
+                }
+            }
+        }
     },
     computed:{
         MenuMain(){
@@ -104,6 +130,11 @@ export default {
                 
             }
         }
+    }
+    .select{
+        background-color: rgba(15, 125, 235,.15);
+        border-right: 3px solid #0f7deb;
+        color: #0f7deb;
     }
     .text{
         padding: 0px 30px;
