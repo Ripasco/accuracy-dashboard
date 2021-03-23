@@ -1,0 +1,33 @@
+@mixin flexCenter($just,$align,$column){
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+    @if $column != false{
+        flex-direction: $column;
+    }
+}
+
+@mixin flexItems($just,$align,$column,$basis,$margin,$padding){
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+    @if $column != false{
+        flex-direction: $column;
+    }
+    @if $basis != false{
+        flex-basis: $basis;
+    }
+    margin:$margin;
+    padding:$padding;
+}
+
+@mixin colorBack($colorBack,$textColor) {
+    transition: all 1.145s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: $colorBack;
+    color: $textColor;
+}
+@mixin fontSet($size,$bold){
+    font-size: $size;
+    font-weight: $bold;
+    font-family: 'Poppins', sans-serif;
+}
