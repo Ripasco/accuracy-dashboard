@@ -1,4 +1,4 @@
-# cms-service-front
+# Accuracy Dashboard
 
 ## Project setup
 ```
@@ -22,3 +22,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Created by Ripasco
