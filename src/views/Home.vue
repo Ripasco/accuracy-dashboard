@@ -6,6 +6,7 @@
       <div class="content">
         <div class="storage">
           <storage-header/>
+          <storage-content/>
         </div>
       </div>
     </div>
@@ -17,13 +18,15 @@
 import Header from '../components/header.vue'
 import NavBar from '../components/content/navigation/navigation.vue'
 import StorageHeader from '../components/content/storage/storage-header.vue'
+import StorageContent from '../components/content/storage/storage-view.vue'
 
 export default {
   name: 'Home',
   components: {
     Header,
     NavBar,
-    StorageHeader
+    StorageHeader,
+    StorageContent
   }
 }
 </script>

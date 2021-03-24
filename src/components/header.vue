@@ -32,10 +32,10 @@ export default {
 @import "../assets/sass/mixins.scss";
     .header{
         border-bottom: 1px solid rgba(0,0,0,.3);
-        min-height: 70px;
+        min-height: 30px;
         @include flexCenter(space-between,center,false);
         &__item{
-            @include flexItems(flex-start,center,false,50%,0,1%);
+            @include flexItems(flex-start,center,false,50%,0,10px);
             &-logo{
                 @include fontSet(30px,bold);
             }

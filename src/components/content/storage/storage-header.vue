@@ -41,6 +41,7 @@ export default {
 
     .storage{
         box-shadow: 0px 1em 3em rgba(#000,.175);
+        max-height: 250px;
         &__item{
             @include fontSet(14px,500);
             padding: 20px;
