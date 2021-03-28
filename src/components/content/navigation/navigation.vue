@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar">
+    <div class="navbars">
         <nav-menu/>
     </div>
 </template>
@@ -20,11 +20,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import "../../../assets/sass/mixins.scss";
 
-    .navbar{
+    .navbars{
         box-shadow: 0px 1em 3em rgba(#000,.175);
         height: 91.92vh;
         max-width: 300px;

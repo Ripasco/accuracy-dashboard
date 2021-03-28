@@ -51,10 +51,10 @@ export default {
             }
             &-info{
                 @include fontSet(13px,600);
-                color: rgb(150, 150, 150);
+                color: rgb(150, 150, 150);  
             }
             &-content{
-                @include flexItems(flex-start,start,column,20%,0,10px 20px);
+                @include flexItems(flex-start,flex-start,column,20%,0,10px 20px);
                 &-title{
                     @include fontSet(16px,500);
                     margin:0;

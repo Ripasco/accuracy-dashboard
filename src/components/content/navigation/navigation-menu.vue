@@ -3,9 +3,9 @@
         <div class="navMenu__main">
             <div class="navMenu__main-head">Основное</div>
             <div class="navMenu__main-menu">
-                <div v-for="(itemMenu,index) in menuChild" :key="index" class="navMenu__main-menu-item" :class="itemMenu.class" @click="selectMenu(itemMenu)" ref="menuItem">
+                <div v-for="(itemMenu,index) in menuChild" :key="index" class="navMenu__main-menu-item  mb-3 p-2" :class="itemMenu.class" @click="selectMenu(itemMenu)" ref="menuItem">
                     <b-icon :icon="itemMenu.icon" font-scale="1.5"></b-icon>
-                    <p class="text">
+                    <p class="text align-middle m-0">
                         {{itemMenu.title}}
                     </p>
                 </div>
@@ -14,9 +14,9 @@
         <div class="navMenu__main">
             <div class="navMenu__main-head">Профиль</div>
             <div class="navMenu__main-menu">
-                <div v-for="(item,index) in profileChild" :key="index" class="navMenu__main-menu-item" :class="item.class" @click="selectMenu(item)" ref="profilItem">
+                <div v-for="(item,index) in profileChild" :key="index" class="navMenu__main-menu-item mb-3 p-2" :class="item.class" @click="selectMenu(item)" ref="profilItem">
                     <b-icon :icon="item.icon" font-scale="1.5"></b-icon>
-                    <p class="text">
+                    <p class="text align-middle m-0">
                         {{item.title}}
                     </p>
                 </div>

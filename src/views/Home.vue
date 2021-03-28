@@ -4,9 +4,13 @@
     <div class="main">
       <nav-bar/>
       <div class="content">
-        <div class="storage">
-          <storage-header/>
-          <storage-content/>
+        <div class="storage" v-show="false">
+          <storage-header />
+          <storage-content />
+        </div>
+        <div class="products">
+          <products-header/>
+          <products-view/>
         </div>
       </div>
     </div>
@@ -19,6 +23,8 @@ import Header from '../components/header.vue'
 import NavBar from '../components/content/navigation/navigation.vue'
 import StorageHeader from '../components/content/storage/storage-header.vue'
 import StorageContent from '../components/content/storage/storage-view.vue'
+import ProductsHeader from '../components/content/products/products-header.vue'
+import ProductsView from '../components/content/products/products-view.vue'
 
 export default {
   name: 'Home',
@@ -26,7 +32,9 @@ export default {
     Header,
     NavBar,
     StorageHeader,
-    StorageContent
+    StorageContent,
+    ProductsHeader,
+    ProductsView
   }
 }
 </script>

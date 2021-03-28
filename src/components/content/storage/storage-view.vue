@@ -18,29 +18,40 @@
             </div>
         </div>
         <div class="storage__content">
-
+            <table class="table table-hover table-bordered ">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col" v-for="(item,index) in storagesTitle" :key="index" class="align-middle">{{item.title}}</th>
+                    </tr>
+                </thead>
+                <tbody class="storage__content-item">
+                    <tr v-for="(item,index) in storages" :key="index">
+                        <td scope="row" class="text-left" v-for="(store,idx) in item.data" :key="idx">{{store.title}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>    
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
     name:'storageView',
     data:()=>{
         return{
-            filterTags:[
-                {
-                    title:'Москва'
-                },
-                {
-                    title:'Пермь'
-                },
-                {
-                    title:'Саратов'
-                }
-            ],
             arrowTitle:'arrow90deg-down',
             isActive:true,
         }
+    },
+    computed:{
+        ...mapState({
+            storages : state => state.Storage.storages,
+            storagesTitle: state=> state.Storage.storagesTitle,
+            filterTags: state => state.Storage.filterTags
+        })
+    },
+    mounted(){
+        console.log(this.storages)
     },
     methods:{
         arrowChange(){
@@ -65,12 +76,52 @@ export default {
         margin: 25px;
         @include colorBack(#f1f2f3,#000);
         box-shadow: 0px 1em 3em rgba($color: #000000, $alpha: .175);
+        &__content{
+            padding: 10px;
+            width: 100%;
+            &-table{
+                width: 100%;
+                text-align: left;
+                &-container{
+                    @include flexCenter(space-around,center,false);
+                    &-item{
+                        width: 100%;
+                       @include flexCenter(flex-start,center,false);
+                    }
+                }
+                &-header{
+                    @include fontSet(17px,600);
+                    color: #000;
+                    &-item{
+                        @include flexCenter(flex-start,center,false);
+                        transition: color 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+                        cursor: pointer;
+                        &:hover{
+                            color: #0f7deb;
+                        }
+                    
+                    }
+                }
+                &-container:nth-child(2){
+                    @include flexCenter(center,flex-start,column);
+                }
+                &-body{
+                    width: 100%;
+                    @include flexCenter(flex-start,center,false);
+                    margin:20px 0px;
+                    @include fontSet(14px,300);
+                    color: rgb(58, 58, 58);
+                }
+            }
+            &-item{
+                cursor: pointer;
+            }
+        }
         &__filter{
             @include flexCenter(space-around,center,false);
             padding: 10px;
             &-item{
                 position: relative;
-                
                 &-tag{
                     height: 60%;
                     padding: 10px;
@@ -86,11 +137,11 @@ export default {
                         color: #0f7deb;
                     }
                     &:hover .icon{
-                        transform: rotate(180deg);
+                        transform: rotate(180deg) scale(1.1);
                         color: rgba($color: #0f7deb, $alpha: 1);
                     }
                     &:hover span{
-                        opacity: .2;
+                        opacity: 1;
                     }
                 }
                 &-icon{
@@ -120,7 +171,8 @@ export default {
     .icon{
         margin: 0px 0px 0px 10px;
         color: rgba($color: #0f7deb, $alpha: .2);
-        transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1); 
+        transition: all .775s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transform:scale(.4); 
     }
     .btn{
         @include flexCenter(space-around,center,false);
@@ -145,7 +197,11 @@ export default {
     .arrow-icon{
         transition: all 1.15s cubic-bezier(0.075, 0.82, 0.165, 1);
         animation: Animate .45s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }   
+    }
+    .sort__icon{
+        transition: all 1.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+        padding: 0px 0px 0px 10px;
+    }
     @keyframes Animate {
         0%{
             opacity: 0;
