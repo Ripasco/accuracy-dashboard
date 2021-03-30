@@ -1,5 +1,5 @@
 <template>
-    <div class="dailyActive shadow-lg">
+    <div class="dailyActive shadow-lg rounded-lg mt-2">
         <h2 class="dailyActive__title">Уровень активности</h2>
         <canvas ref="dailyActive" class="chartjS" height="250"></canvas>
     </div>
@@ -66,7 +66,6 @@ export default {
     .dailyActive{
         width: 100%;
         padding: 25px;
-        margin: 10px 0px;
         height: 500px !important;
         @include colorBack(#f1f2f3,#000);
     }

@@ -3,10 +3,10 @@
         <div class="col-lg-8 d-flex flex-column align-items-center">
             <info-bar class="col-lg-3 mw-100" />
             <daily-active class="col-lg-5 mw-100"/>
-            <div class="d-flex col-lg-4 mw-100 p-0">
-                <Demography class="col-lg-6 mw-60"/>
-                <Gender class="col-lg-2 mw-20"/>
-                <operating-sys class="col-lg-2 mw-20"/>
+            <div class="d-flex col-lg-4 mw-100 p-0 shadow-lg justify-content-between mt-3">
+                <Demography class="col-lg-6 rounded-lg"/>
+                <Gender class=" shadow-lg charts__item rounded-lg"/>
+                <operating-sys class="col-lg-3 shadow-lg rounded-lg"/>
             </div>
         </div>
         <div class="d-flex col-lg-5 flex-column align-items-center"></div>
@@ -44,4 +44,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .charts__item{
+        flex-basis: 23%;
+    }
 </style>
