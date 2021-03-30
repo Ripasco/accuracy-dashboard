@@ -8,9 +8,12 @@
           <storage-header />
           <storage-content />
         </div>
-        <div class="products">
+        <div class="products" v-show="false">
           <products-header/>
           <products-view/>
+        </div>
+        <div class="analisys">
+          <Analisys/>
         </div>
       </div>
     </div>
@@ -25,6 +28,7 @@ import StorageHeader from '../components/content/storage/storage-header.vue'
 import StorageContent from '../components/content/storage/storage-view.vue'
 import ProductsHeader from '../components/content/products/products-header.vue'
 import ProductsView from '../components/content/products/products-view.vue'
+import Analisys from '../components/content/analisys/analisys.vue'
 
 export default {
   name: 'Home',
@@ -34,7 +38,8 @@ export default {
     StorageHeader,
     StorageContent,
     ProductsHeader,
-    ProductsView
+    ProductsView,
+    Analisys
   }
 }
 </script>
