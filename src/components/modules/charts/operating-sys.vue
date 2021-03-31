@@ -3,7 +3,7 @@
         <h2 class="system__title">System</h2>
         <div class="system__chart">
             <div class="system__chart-text">65%</div>
-            <canvas ref="canvas" ></canvas>
+            <canvas ref="canvas" class="chartjs" height="200"></canvas>
         </div>
     </div>
 </template>
@@ -40,6 +40,7 @@ export default {
                 }]  
             },
             options:{
+                responsive: true,
                 text: {
                     display: true,
                     text: 'Operating System'
@@ -73,10 +74,20 @@ export default {
            &-text{
                 @include fontSet(30px,600);
                 position: absolute;
-                top: 46%;
+                top: 54%;
                 left: 40%;
                 color:rgb(84, 114, 232);
            }
+        }
+    }
+    .chartjs{
+        width: 100%;
+    }
+    @media screen and (max-width: 1580px){
+        .system__chart-text{
+            top: 61%;
+            left: 38%;
+            font-size: 25px;
         }
     }
 </style>

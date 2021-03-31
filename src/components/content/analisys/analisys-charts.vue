@@ -1,6 +1,6 @@
 <template>
     <div class="analisys d-flex mt-3">
-        <div class="col-lg-8 d-flex flex-column align-items-center">
+        <div class="col-lg-8 col-md-8 d-flex flex-column align-items-center">
             <info-bar class="col-lg-3 mw-100" />
             <daily-active class="col-lg-5 mw-100"/>
             <div class="d-flex col-lg-4 mw-100 p-0 shadow-lg justify-content-between mt-3">
@@ -9,7 +9,7 @@
                 <operating-sys class="col-lg-3 shadow-lg rounded-lg"/>
             </div>
         </div>
-        <div class="d-flex col-lg-5 flex-column align-items-center"></div>
+        <div class="d-flex col-lg-5 col-md-5 flex-column align-items-center"></div>
     </div>
 </template>
 <script>
@@ -46,5 +46,10 @@ export default {
 <style lang="scss" scoped>
     .charts__item{
         flex-basis: 23%;
+    }
+    @media screen and (max-width: 1445px){
+        .analisys{
+            flex-direction: column;
+        }
     }
 </style>
