@@ -4,15 +4,15 @@
     <div class="main">
       <nav-bar/>
       <div class="content">
-        <div class="storage" v-show="false">
+        <div class="storage" v-show="contents[0].visible">
           <storage-header />
           <storage-content />
         </div>
-        <div class="products" v-show="false">
+        <div class="products" v-show="contents[1].visible">
           <products-header/>
           <products-view/>
         </div>
-        <div class="analisys">
+        <div class="analisys" v-if="contents[2].visible">
           <Analisys/>
         </div>
       </div>
@@ -40,7 +40,40 @@ export default {
     ProductsHeader,
     ProductsView,
     Analisys
-  }
+  },
+  data:()=>{
+    return{
+      contents:[
+        {
+          title:'storage',
+          visible:false,
+        },
+        {
+          title:'products',
+          visible:false,
+        },
+        {
+          title:'analisys',
+          visible:true,
+        },
+      ]
+    }
+  },
+  mounted(){
+    this.$root.$on('change', data => {
+      
+      for (let i = 0; i < this.contents.length; i++) {
+        
+        if(this.contents[i].visible == false && this.contents[i].title == data){
+          this.contents[i].visible = true;
+          console.log(data);
+          console.log(this.contents[i].title);
+        }else{
+          this.contents[i].visible = false;
+        }
+      }
+    });
+  },
 }
 </script>
 <style lang="scss" scoped>

@@ -79,6 +79,16 @@ export default {
     },
     methods:{
         selectMenu(item){
+            if(item.title == "Склад"){
+                this.$root.$emit('change','storage');
+            }else if(item.title == "Товары"){
+                this.$root.$emit('change','products');
+            }else if(item.title == "Аналитика"){
+                this.$root.$emit('change','analisys');
+            }else{
+                console.error("Some runs wrong");
+            }
+
             for (let i = 0; i < this.profileChild.length; i++) {
                 if(this.profileChild[i] == item && this.profileChild[i].class != "select"){
                     this.profileChild[i].class = "select";

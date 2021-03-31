@@ -16,6 +16,11 @@ export default {
     },
     components:{
         NavMenu
+    },
+    mounted(){
+        // this.$root.$on("change",el => {
+        //     console.log(el);
+        // })
     }
 }
 </script>
